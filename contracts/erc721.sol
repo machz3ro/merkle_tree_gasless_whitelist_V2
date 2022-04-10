@@ -15,7 +15,7 @@ contract BasedTrees is ERC721A, Ownable, ReentrancyGuard {
 
   string public uriPrefix = '';
   string public uriSuffix = '.json';
-  string public hiddenMetadataUri;
+  string public hiddenMetadataURI;
   
   uint256 public cost;
   uint256 public maxSupply;
@@ -31,13 +31,13 @@ contract BasedTrees is ERC721A, Ownable, ReentrancyGuard {
     uint256 _cost,
     uint256 _maxSupply,
     uint256 _maxMintAmountPerTx,
-    string memory _hiddenMetadataUri
+    string memory _hiddenMetadataURI
   ) ERC721A (_tokenName, _tokenSymbol) 
   {
     setCost(_cost);
     maxSupply = _maxSupply;
     setMaxMintAmountPerTx(_maxMintAmountPerTx);
-    setHiddenMetadataUri(_hiddenMetadataUri);
+    sethiddenMetadataURI(_hiddenMetadataURI);
   }
   modifier mintCompliance(uint256 _mintAmount) 
   {
@@ -103,7 +103,7 @@ contract BasedTrees is ERC721A, Ownable, ReentrancyGuard {
     require(_exists(_tokenId), 'ERC721Metadata: URI query for nonexistent token');
     if (revealed == false) 
     {
-      return hiddenMetadataUri;
+      return hiddenMetadataURI;
     }
     string memory currentBaseURI = _baseURI();
     return bytes(currentBaseURI).length > 0
@@ -122,9 +122,9 @@ contract BasedTrees is ERC721A, Ownable, ReentrancyGuard {
   {
     maxMintAmountPerTx = _maxMintAmountPerTx;
   }
-  function setHiddenMetadataUri(string memory _hiddenMetadataUri) public onlyOwner 
+  function sethiddenMetadataURI(string memory _hiddenMetadataURI) public onlyOwner 
   {
-    hiddenMetadataUri = _hiddenMetadataUri;
+    hiddenMetadataURI = _hiddenMetadataURI;
   }
   function setUriPrefix(string memory _uriPrefix) public onlyOwner 
   {
