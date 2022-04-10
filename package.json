@@ -24,8 +24,6 @@
     "hardhat-deploy": "^0.9.29",
     "hardhat-gas-reporter": "^1.0.7",
     "hardhat-shorthand": "^1.0.0",
-    "keccak256": "^1.0.6",
-    "merkletreejs": "^0.2.31",
     "solidity-coverage": "^0.7.20"
   }
 }
